@@ -139,3 +139,6 @@
     };
 
     playTrack(0); // Start with first track
+ </script>
+</body>
+</html>
