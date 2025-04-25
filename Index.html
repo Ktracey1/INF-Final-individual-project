@@ -1,0 +1,229 @@
+<!--doctype html-->
+<html>
+<head>
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Gill Sans	
+;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+ 
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Gill Sans	;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+ 
+/*--blog--------------------------*/
+.blog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.blog-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.blog-heading span{
+    color: #c74242;
+}
+.blog-heading h3{
+    font-size: 2.4rem;
+    color: #2b2b2b;
+    font-weight: 600;
+}
+.blog-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+}
+ 
+.blog-box{
+    width:350px;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    margin: 20px 20px;
+ 
+}
+.blog-img{
+    width:100%;
+    height: auto;
+}
+.blog-img img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.blog-text{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.blog-text span{
+    color: #972581;
+    font-size: 0.9rem;
+}
+.blog-text .blog-title{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #272727;
+}
+.blog-text p{
+    color: #9b9b9b;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+}
+.blog-text a{
+    color: #0f0f0f;
+}
+.blog-text a:hover{
+    color: #c74242;
+    transition: all ease 0.3s;
+}
+ 
+ 
+@media(max-width:1250px){
+ 
+    .blog-box{
+        width: 300px;
+    }
+} 
+@media(max-width:1100px){
+    .blog-box{
+        width:70%;
+    }
+}
+ 
+@media(max-width:550px){
+   
+    .blog-box{
+        margin: 20px 10px;
+        width: 100%;
+    }
+    #blog{
+        padding:20px;
+    }
+}
+</style>
+<title>Blog Section</title>
+<!--Stylesheet----------------------------------->
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+  <!--navington bar --->
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4C191B;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+<body>
+
+<ul>
+    <li><a href="index.html">Home</a></li>
+  <li><a href="About me.html">About me</a></li>
+  <li><a href="Contact.html">Contact</a></li>
+
+</ul>
+<br>
+<!--blog-section============================================================================-->
+    <section id="blog">
+        <!--blog-heading--------------->
+        <div class="blog-heading">
+          <span>My Recent Posts</span>
+          <h3>My Blog</h3>
+       <br>
+       
+        </div>
+        <!--container---------------->
+        <div class="blog-container">
+  
+          <!--box-1------------->
+          <div class="blog-box">
+  
+            <!--img---->
+            <div class="blog-img">
+              <img alt="blog" src="https://assets.onecompiler.app/43b9vdsvj/43eb4cz4y/blog-1.png">
+            </div>
+            <!--text--->
+            <div class="blog-text">
+              <span>03 March 2025/ Personal Blog</span>
+              <a href="letter.html" class="blog-title"> By You For You xoxo</a>
+              <p>Send a meaningful letter to your future self.</p>
+              <a href="letter.html">Read More</a>
+            </div>
+          </div>
+  
+          <!--box-2------------->
+          <div class="blog-box">
+  
+            <!--img---->
+            <div class="blog-img">
+              <img alt="blog" src="https://assets.onecompiler.app/43b9vdsvj/43eb4cz4y/blog-2.png">
+            </div>
+            <!--text--->
+            <div class="blog-text">
+              <span>09 April 2025/ Personal Music Playlist </span>
+              <a href="Genres.html" class="blog-title">Afrobeats Current Favorites</a>
+              <p>This is where I listed my top 10 current favorites Afrobeats songs that I replay repeatly. As an Central african girl myself. I love listening to music from my people.</p>
+              <a href="Genres.html">Read More</a>
+            </div>
+  
+          </div>
+
+          </div>
+  
+        </div>
+      </section>
+</body>
+<center>
+<div>
+<p>Copyright &copy; 2025 All Rights Reserved by Tracey Kamwimbi</p>
+</div>
+</center>
+</html>
