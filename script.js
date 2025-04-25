@@ -1,8 +1,8 @@
-const video_playlist = document.querySelector('.video-playlist .videos');
-const audio_player = document.querySelector('.audio-player');
-const spotify_embed = document.querySelector('.spotify-embed');
+ const video_playlist = document.querySelector('.video-playlist .videos');
+    const audio_player = document.querySelector('.audio-player');
+    const spotify_embed = document.querySelector('.spotify-embed');
 
-let data = [
+    let data = [
   { id: 'a1',
   title: 'Le miel',
   name: 'le miel.mp3', 
@@ -82,39 +82,60 @@ let data = [
     duration: '4:46',
     url: 'https://open.spotify.com/embed/track/3IedXlFglIwo754rxOID4x?utm_source=generator' 
   }
+  
 ];
 
-data.forEach((track, i) => {
-  let html = `
-    <div class="video" data-id="${track.id}">
-      <p>${i + 1 < 10 ? '0' + (i + 1) : i + 1}.</p>
-      <h3 class="title">${track.title}</h3>
-      <h3 class="artist">${track.artist}</h3>
-      <p class="time">${track.duration}</p>
-    </div>
-  `;
-  video_playlist.innerHTML += html;
-});
+    data.forEach((track, i) => {
+      let html = `
+        <div class="video" data-id="${track.id}">
+          <p>${i + 1 < 10 ? '0' + (i + 1) : i + 1}.</p>
+          <h3 class="title">${track.title}</h3>
+          <h3 class="artist">${track.artist}</h3>
+          <p class="time">${track.duration}</p>
+        </div>
+      `;
+      video_playlist.innerHTML += html;
+    });
 
-let videos = document.querySelectorAll('.video');
+    let videos = document.querySelectorAll('.video');
+    let currentIndex = 0;
 
-videos[0].classList.add('active');
-audio_player.src = 'audio/' + data[0].name;
+    function playTrack(index) {
+      videos.forEach(v => {
+        v.classList.remove('active');
+      });
 
-videos.forEach(videoEl => {
-  videoEl.onclick = () => {
+      let videoEl = videos[index];
+      let track = data[index];
 
-    let track = data.find(t => t.id === videoEl.dataset.id);
+      videoEl.classList.add('active');
 
-    if (track.url) {
-      audio_player.pause();
-      audio_player.style.display = 'none';
-      spotify_embed.innerHTML = `<iframe style="border-radius:12px" src="${track.url}" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
-    } else {
-      spotify_embed.innerHTML = '';
-      audio_player.style.display = 'block';
-      audio_player.src = 'audio/' + track.name;
-      audio_player.play();
+      if (track.url) {
+        audio_player.pause();
+        audio_player.style.display = 'none';
+        spotify_embed.innerHTML = `<iframe style="border-radius:12px" src="${track.url}" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      } else {
+        spotify_embed.innerHTML = '';
+        audio_player.style.display = 'block';
+        audio_player.src = 'audio/' + track.name;
+        audio_player.play();
+      }
+
+      currentIndex = index;
     }
-  };
-});
+
+    videos.forEach((videoEl, i) => {
+      videoEl.onclick = () => playTrack(i);
+    });
+
+    document.getElementById('prev').onclick = () => {
+      currentIndex = (currentIndex - 1 + data.length) % data.length;
+      playTrack(currentIndex);
+    };
+
+    document.getElementById('next').onclick = () => {
+      currentIndex = (currentIndex + 1) % data.length;
+      playTrack(currentIndex);
+    };
+
+    playTrack(0); // Start with first track
